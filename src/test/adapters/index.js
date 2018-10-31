@@ -1,0 +1,3 @@
+describe('adapters', () => {
+  require('./JSONAdapter');
+});
