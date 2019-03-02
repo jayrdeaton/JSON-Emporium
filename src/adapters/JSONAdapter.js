@@ -68,6 +68,9 @@ let JSONAdapter = class JSONAdapter {
     await writeFile(join(dir, `${endpoint}.json`), objects, this.pretty);
     return null;
   };
+  setName(name) {
+    this.name = name;
+  };
 };
 
 module.exports = JSONAdapter;

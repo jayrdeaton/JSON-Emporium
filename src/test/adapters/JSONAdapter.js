@@ -3,13 +3,13 @@ let { is, isnt } = require('amprisand'),
   faker = require('faker'),
   Emporium = require('../../../'),
   { JSONAdapter, Schema } = Emporium,
-  schema, Storable, storables;
+  adapter, schema, Storable, storables;
 
 describe('JSONAdapter', () => {
   describe('new JSONAdapter()', () => {
     it('should create and configure a new JSON Adapter', () => {
-      let adapter = new JSONAdapter({
-        name: 'TEST',
+      adapter = new JSONAdapter({
+        name: 'TESTING',
         pretty: true
       });
       adapter.is(Object);
@@ -24,6 +24,12 @@ describe('JSONAdapter', () => {
       });
       Storable = emporium.storable('Test_Model', schema);
       is(Storable);
+    });
+  });
+  describe('adapter.setName()', () => {
+    it('should change adapter name', async () => {
+      adapter.setName('TEST');
+      adapter.name.is('TEST');
     });
   });
   describe('Storable.create()', () => {
